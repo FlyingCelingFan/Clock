@@ -7,6 +7,12 @@ make coundown clock that sets time for the amount it is pressed down
 
 */ 
 
+<script type="text/javascript">
+
+
+function updateClock() {
+
+
 var currentTime = new Date();
 
 //declare variables for the clock
@@ -34,3 +40,7 @@ var currentTimeString = currentHour + ":" + currentMinute + ":" + currentSecond 
 //shows the clock in index.html
 document.getElementById("clock").firstChild.nodeValue = currentTimeString;
 
+}
+
+
+</script>
