@@ -12,21 +12,16 @@ make coundown clock that sets time for the amount it is pressed down
 
 function showTime(){
   var date = new Date();
-  var h = date.getHours(); // 0 - 23
-  var m = date.getMinutes(); // 0 - 59
-  var s = date.getSeconds(); // 0 - 59
+  var h = date.getHours();
+  var m = date.getMinutes();
+  var s = date.getSeconds();
   var time = "AM";
 
   if(h == 0){
       h = 12;
   }
 
-  if(h > 12){
-      h = h - 12;
-      time = "PM";
-  }
-
-  (h)
+  h = (h > 12) ? time = "PM" : time ="AM";
 
   h = (h < 10) ? "0" + h : h;
   m = (m < 10) ? "0" + m : m;
@@ -45,7 +40,7 @@ showTime();
 
 function button() {
 
-  alert("this is the end of the presentation.");
+  alert("alert");
 
 }
 
