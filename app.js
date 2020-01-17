@@ -1,4 +1,4 @@
-  /*
+   /*
 notes:
 make a clock face
 button dies
@@ -7,8 +7,49 @@ make coundown clock that sets time for the amount it is pressed down
 
 */ 
 
-<script type="text/javascript">
 
+
+
+function showTime(){
+  var date = new Date();
+  var h = date.getHours(); // 0 - 23
+  var m = date.getMinutes(); // 0 - 59
+  var s = date.getSeconds(); // 0 - 59
+  var session = "AM";
+
+  if(h == 0){
+      h = 12;
+  }
+
+  if(h > 12){
+      h = h - 12;
+      session = "PM";
+  }
+
+  h = (h < 10) ? "0" + h : h;
+  m = (m < 10) ? "0" + m : m;
+  s = (s < 10) ? "0" + s : s;
+
+  var time = h + ":" + m + ":" + s + " " + session;
+  document.getElementById("javascropt").innerText = time;
+  document.getElementById("javascropt").textContent = time;
+
+  setTimeout(showTime, 1000);
+
+}
+
+showTime();
+
+
+function button() {
+
+  alert("this is the end of the presentation.");
+
+}
+
+
+
+/*
 
 function updateClock() {
 
@@ -16,10 +57,10 @@ function updateClock() {
 var currentTime = new Date();
 
 //declare variables for the clock
-var currentHour currentTime.getHours ();
-var currentMinute currentTime.getMinutes ();
-var currentSecond currentTime.getSeconds ();
-var currentMilisecond currentTime.getMiliseconds ();
+var currentHour = currentTime.getHours ();
+var currentMinute = currentTime.getMinutes ();
+var currentSecond = currentTime.getSeconds ();
+var currentMilisecond = currentTime.getMiliseconds ();
 
 currentMinute = (currentMinute < 10 ? "0" : "" ) + currentMinute;
 currentSecond = (currentSecond < 10 ? "0" : "") + currentSecond;
@@ -42,5 +83,39 @@ document.getElementById("clock").firstChild.nodeValue = currentTimeString;
 
 }
 
+*/
+/************************************************
 
-</script>
+
+
+
+function updateClock ( )
+{
+  var currentTime = new Date ( );
+
+  var currentHours = currentTime.getHours ( );
+  var currentMinutes = currentTime.getMinutes ( );
+  var currentSeconds = currentTime.getSeconds ( );
+
+  // Pad the minutes and seconds with leading zeros, if required
+  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+  // Choose either "AM" or "PM" as appropriate
+  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+  // Convert the hours component to 12-hour format if needed
+  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+  // Convert an hours component of "0" to "12"
+  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+  // Compose the string for display
+  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+
+  // Update the time display
+  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+}
+
+
+****************************************************************************/
